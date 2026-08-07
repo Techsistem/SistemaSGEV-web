@@ -3,6 +3,7 @@ com\sgev\model\Produto.class
 com\sgev\model\Cliente.class
 com\sgev\dao\ClienteDAO.class
 com\sgev\dao\UsuarioDAO.class
+com\sgev\service\DescontoService.class
 com\sgev\dao\JPAUtil.class
 com\sgev\service\ClienteService.class
 com\sgev\dao\ConexaoDAO.class

@@ -1,13 +1,13 @@
 package com.sgev.dao;
 
 import com.sgev.model.Cliente;
+import jakarta.persistence.EntityManager;
 import java.util.List;
-import javax.persistence.EntityManager;
 
 public class ClienteDAO {
 
     public void salvar(Cliente cliente) {
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = (EntityManager) JPAUtil.getEntityManager();
         try {
             em.getTransaction().begin();
             em.persist(cliente);
@@ -21,7 +21,7 @@ public class ClienteDAO {
     }
 
     public Cliente buscarPorId(int id) {
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = (EntityManager) JPAUtil.getEntityManager();
         try {
             return em.find(Cliente.class, id);
         } finally {
@@ -30,7 +30,7 @@ public class ClienteDAO {
     }
 
     public Cliente buscarPorCpf(String cpf) {
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = (EntityManager) JPAUtil.getEntityManager();
         try {
             return em.createQuery("SELECT c FROM Cliente c WHERE c.cpf = :cpf", Cliente.class)
                      .setParameter("cpf", cpf)
@@ -43,7 +43,7 @@ public class ClienteDAO {
     }
 
     public void atualizar(Cliente cliente) {
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = (EntityManager) JPAUtil.getEntityManager();
         try {
             em.getTransaction().begin();
             em.merge(cliente);
@@ -57,7 +57,7 @@ public class ClienteDAO {
     }
 
     public List<Cliente> buscarPorNome(String nome) {
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = (EntityManager) JPAUtil.getEntityManager();
         try {
             return em.createQuery("SELECT c FROM Cliente c WHERE c.nome LIKE :nome", Cliente.class)
                      .setParameter("nome", "%" + nome + "%")
@@ -68,7 +68,7 @@ public class ClienteDAO {
     }
 
     public List<Cliente> listar() {
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = (EntityManager) JPAUtil.getEntityManager();
         try {
             return em.createQuery("SELECT c FROM Cliente c", Cliente.class).getResultList();
         } finally {

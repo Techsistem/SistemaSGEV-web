@@ -1,8 +1,8 @@
 package com.sgev.dao;
 
 import com.sgev.model.Usuario;
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 
 public class UsuarioDAO {
 

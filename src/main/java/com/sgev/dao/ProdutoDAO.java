@@ -1,15 +1,16 @@
 package com.sgev.dao;
 
 import com.sgev.model.Produto;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
+
 
 public class ProdutoDAO {
 
     // Busca pelo ID (Chave primária automática)
     public Produto buscarPorId(int id) {
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = (EntityManager) JPAUtil.getEntityManager();
         try {
             return em.find(Produto.class, id);
         } finally {
@@ -19,7 +20,7 @@ public class ProdutoDAO {
 
     // Busca pelo Código de Barras (O que você digita na tela de vendas)
     public Produto buscarPorCodigo(String codigo) {
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = (EntityManager) JPAUtil.getEntityManager();
         try {
             return em.createQuery("SELECT p FROM Produto p WHERE p.codigoBarras = :codigo", Produto.class)
                      .setParameter("codigo", codigo)
@@ -33,7 +34,7 @@ public class ProdutoDAO {
 
     // NOVO: Busca por Nome (Para o campo "Pesquisar produto" na tela de vendas)
     public List<Produto> buscarPorNome(String nome) {
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = (EntityManager) JPAUtil.getEntityManager();
         try {
             // O operador LIKE permite encontrar nomes parciais (ex: digitar "Cabo" acha "Cabo USB")
             return em.createQuery("SELECT p FROM Produto p WHERE p.nome LIKE :nome", Produto.class)
@@ -46,7 +47,7 @@ public class ProdutoDAO {
     
     // Método para salvar (Garante o commit no banco de dados)
     public void salvar(Produto produto) {
-        EntityManager em = JPAUtil.getEntityManager();
+        EntityManager em = (EntityManager) JPAUtil.getEntityManager();
         try {
             em.getTransaction().begin();
             em.persist(produto);

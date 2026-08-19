@@ -33,7 +33,6 @@ public class Main {
             System.err.println("❌ Erro de Validação (Regra de Negócio): " + e.getMessage());
         } catch (Exception e) {
             System.err.println("❌ Erro ao conectar/executar no banco: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 }

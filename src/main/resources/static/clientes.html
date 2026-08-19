@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGEV-WEB - Gestão de Clientes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo"><h1>SGEV <span>WEB</span></h1></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="clientes.html" class="active">Clientes</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="vendas.html">Nova Venda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="card">
+            <h2 class="card-title">Cadastro de Cliente (Spring REST + MySQL)</h2>
+            <div id="alert-success" class="alert alert-success"></div>
+            <div id="alert-error" class="alert alert-danger"></div>
+            <form id="form-cliente">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" required placeholder="Ex: Carlos Eduardo Santos">
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF *</label>
+                        <input type="text" id="cpf" required placeholder="000.000.000-00" maxlength="14">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" required placeholder="cliente@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" id="telefone" placeholder="(00) 00000-0000" maxlength="15">
+                    </div>
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" placeholder="00000-000" maxlength="9">
+                    </div>
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" placeholder="Ex: Sobral">
+                    </div>
+                    <div class="form-group">
+                        <label for="uf">UF</label>
+                        <select id="uf">
+                            <option value="CE">CE</option>
+                            <option value="SP">SP</option>
+                            <option value="RJ">RJ</option>
+                            <option value="MG">MG</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-secondary">Limpar</button>
+                    <button type="submit" class="btn btn-primary">Salvar no Banco</button>
+                </div>
+            </form>
+        </div>
+        <div class="card">
+            <h2 class="card-title">Clientes Cadastrados no Banco de Dados</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>Nome</th><th>CPF</th><th>E-mail</th><th>Telefone</th><th>Cidade/UF</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-clientes-corpo"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer><p>&copy; 2026 SGEV-WEB - Sistema de Gestão de Vendas. Projeto Integrador.</p></footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

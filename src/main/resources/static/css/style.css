@@ -1,0 +1,45 @@
+/* Estilos Gerais SGEV-WEB */
+:root {
+    --primary: #1a365d;
+    --primary-light: #2b6cb0;
+    --secondary: #2c5282;
+    --accent: #3182ce;
+    --background: #f7fafc;
+    --surface: #ffffff;
+    --text: #2d3748;
+    --text-muted: #718096;
+    --border: #e2e8f0;
+    --success: #38a169;
+    --danger: #e53e3e;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: var(--background); color: var(--text); display: flex; flex-direction: column; min-height: 100vh; }
+header { background-color: var(--primary); color: #fff; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.logo h1 { font-size: 1.5rem; font-weight: 700; }
+.logo span { color: #63b3ed; }
+nav ul { display: flex; list-style: none; gap: 1.5rem; }
+nav a { color: #e2e8f0; text-decoration: none; font-weight: 500; }
+nav a:hover, nav a.active { color: #fff; border-bottom: 2px solid #63b3ed; padding-bottom: 4px; }
+main { flex: 1; max-width: 1200px; width: 100%; margin: 2rem auto; padding: 0 1.5rem; }
+.card { background: var(--surface); border-radius: 8px; padding: 1.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 2rem; border: 1px solid var(--border); }
+.card-title { font-size: 1.25rem; color: var(--primary); margin-bottom: 1.25rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+.form-group.full-width { grid-column: 1 / -1; }
+label { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+input, select, textarea { padding: 0.65rem 0.85rem; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; outline: none; }
+input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15); }
+.form-actions { margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: flex-end; }
+button, .btn { padding: 0.65rem 1.25rem; border-radius: 6px; font-size: 0.95rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-block; }
+.btn-primary { background-color: var(--primary-light); color: #fff; }
+.btn-secondary { background-color: #edf2f7; color: var(--text); }
+.table-responsive { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+th { background-color: #f7fafc; color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; }
+.alert { padding: 0.85rem 1rem; border-radius: 6px; margin-bottom: 1.25rem; font-size: 0.9rem; display: none; }
+.alert-success { background-color: #def7ec; color: #03543f; border: 1px solid #bcf0da; }
+.alert-danger { background-color: #fde8e8; color: #9b1c1c; border: 1px solid #fbd5d5; }
+footer { background-color: #edf2f7; color: var(--text-muted); text-align: center; padding: 1.25rem; font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: auto; }

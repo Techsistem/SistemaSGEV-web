@@ -1,44 +1,55 @@
 package com.sgev.model;
 
-import java.io.Serializable;
-import javax.persistence.*;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente implements Serializable {
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
+    @NotBlank(message = "O nome é obrigatório.")
+    @Size(min = 3, message = "O nome deve ter no mínimo 3 caracteres.")
     @Column(nullable = false, length = 100)
     private String nome;
 
-    @Column(unique = true, length = 14)
+    @NotBlank(message = "O CPF é obrigatório.")
+    @Column(nullable = false, unique = true, length = 14)
     private String cpf;
 
-    @Column(unique = true)
+    @Column(length = 100)
     private String email;
 
+    @Column(length = 20)
     private String telefone;
 
-    // Campos detalhados para bater com as suas telas de Cadastro e Edição
-    private String rua;
-    private String bairro;
-    private String numero;
+    @Column(length = 10)
     private String cep;
-    private String estado;
-    
-    // Campo genérico para compatibilidade
-    private String endereco;
 
-    public Cliente() {
+    @Column(length = 100)
+    private String cidade;
+
+    @Column(length = 2)
+    private String uf;
+
+    public Cliente() {}
+
+    public Cliente(String nome, String cpf, String email, String telefone, String cep, String cidade, String uf) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.uf = uf;
     }
 
-    // --- Getters e Setters ---
-
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
@@ -52,21 +63,12 @@ public class Cliente implements Serializable {
     public String getTelefone() { return telefone; }
     public void setTelefone(String telefone) { this.telefone = telefone; }
 
-    public String getRua() { return rua; }
-    public void setRua(String rua) { this.rua = rua; }
-
-    public String getBairro() { return bairro; }
-    public void setBairro(String bairro) { this.bairro = bairro; }
-
-    public String getNumero() { return numero; }
-    public void setNumero(String numero) { this.numero = numero; }
-
     public String getCep() { return cep; }
     public void setCep(String cep) { this.cep = cep; }
 
-    public String getEstado() { return estado; }
-    public void setEstado(String estado) { this.estado = estado; }
+    public String getCidade() { return cidade; }
+    public void setCidade(String cidade) { this.cidade = cidade; }
 
-    public String getEndereco() { return endereco; }
-    public void setEndereco(String endereco) { this.endereco = endereco; }
+    public String getUf() { return uf; }
+    public void setUf(String uf) { this.uf = uf; }
 }
